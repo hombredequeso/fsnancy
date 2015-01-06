@@ -138,4 +138,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!-- Required to deploy to Azure from github -->
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" 
+  Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" 
+  Condition="true" />  
 </Project>
