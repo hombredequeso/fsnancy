@@ -9,6 +9,7 @@ type MyModel = {TestKey:string}
 type IndexModule() as x =
     inherit NancyModule()
     let webConfigVal = Settings.TestKey
-    let m ={TestKey = webConfigVal}
+    let webConfigVal2 = System.Configuration.ConfigurationManager.AppSettings.["TestKey"]
+    let m ={TestKey = webConfigVal2}
     do x.Get.["/"] <- fun _ -> box x.View.["index", m]
 
